@@ -9,6 +9,7 @@ namespace Constants {
     constexpr int   SCREEN_H     = 600;
     constexpr float GRAVITY      = 1800.0f; // pixels per second²
     constexpr float JUMP_SPEED   = -650.0f; // negative = upward (Y increases downward)
+    constexpr float MANTLE_SPEED = -300.0f;
     constexpr float MOVE_SPEED   = 280.0f;
     constexpr float MAX_FALL     = 1200.0f; // terminal velocity
 }

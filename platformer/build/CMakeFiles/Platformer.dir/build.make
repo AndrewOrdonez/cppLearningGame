@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer
+CMAKE_SOURCE_DIR = /home/andrew/Programming/cppLearningGame/platformer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/build
+CMAKE_BINARY_DIR = /home/andrew/Programming/cppLearningGame/platformer/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Platformer.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/Platformer.dir/progress.make
 include CMakeFiles/Platformer.dir/flags.make
 
 CMakeFiles/Platformer.dir/src/Player.cpp.o: CMakeFiles/Platformer.dir/flags.make
-CMakeFiles/Platformer.dir/src/Player.cpp.o: /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Player.cpp
+CMakeFiles/Platformer.dir/src/Player.cpp.o: /home/andrew/Programming/cppLearningGame/platformer/src/Player.cpp
 CMakeFiles/Platformer.dir/src/Player.cpp.o: CMakeFiles/Platformer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Platformer.dir/src/Player.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Platformer.dir/src/Player.cpp.o -MF CMakeFiles/Platformer.dir/src/Player.cpp.o.d -o CMakeFiles/Platformer.dir/src/Player.cpp.o -c /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andrew/Programming/cppLearningGame/platformer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Platformer.dir/src/Player.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Platformer.dir/src/Player.cpp.o -MF CMakeFiles/Platformer.dir/src/Player.cpp.o.d -o CMakeFiles/Platformer.dir/src/Player.cpp.o -c /home/andrew/Programming/cppLearningGame/platformer/src/Player.cpp
 
 CMakeFiles/Platformer.dir/src/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Platformer.dir/src/Player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Player.cpp > CMakeFiles/Platformer.dir/src/Player.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrew/Programming/cppLearningGame/platformer/src/Player.cpp > CMakeFiles/Platformer.dir/src/Player.cpp.i
 
 CMakeFiles/Platformer.dir/src/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Platformer.dir/src/Player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Player.cpp -o CMakeFiles/Platformer.dir/src/Player.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrew/Programming/cppLearningGame/platformer/src/Player.cpp -o CMakeFiles/Platformer.dir/src/Player.cpp.s
 
 CMakeFiles/Platformer.dir/src/main.cpp.o: CMakeFiles/Platformer.dir/flags.make
-CMakeFiles/Platformer.dir/src/main.cpp.o: /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/main.cpp
+CMakeFiles/Platformer.dir/src/main.cpp.o: /home/andrew/Programming/cppLearningGame/platformer/src/main.cpp
 CMakeFiles/Platformer.dir/src/main.cpp.o: CMakeFiles/Platformer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Platformer.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Platformer.dir/src/main.cpp.o -MF CMakeFiles/Platformer.dir/src/main.cpp.o.d -o CMakeFiles/Platformer.dir/src/main.cpp.o -c /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/andrew/Programming/cppLearningGame/platformer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Platformer.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Platformer.dir/src/main.cpp.o -MF CMakeFiles/Platformer.dir/src/main.cpp.o.d -o CMakeFiles/Platformer.dir/src/main.cpp.o -c /home/andrew/Programming/cppLearningGame/platformer/src/main.cpp
 
 CMakeFiles/Platformer.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Platformer.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/main.cpp > CMakeFiles/Platformer.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrew/Programming/cppLearningGame/platformer/src/main.cpp > CMakeFiles/Platformer.dir/src/main.cpp.i
 
 CMakeFiles/Platformer.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Platformer.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/main.cpp -o CMakeFiles/Platformer.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrew/Programming/cppLearningGame/platformer/src/main.cpp -o CMakeFiles/Platformer.dir/src/main.cpp.s
 
 # Object files for target Platformer
 Platformer_OBJECTS = \
@@ -110,7 +110,7 @@ Platformer: CMakeFiles/Platformer.dir/src/main.cpp.o
 Platformer: CMakeFiles/Platformer.dir/build.make
 Platformer: /usr/lib/x86_64-linux-gnu/libSDL2.so
 Platformer: CMakeFiles/Platformer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Platformer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/andrew/Programming/cppLearningGame/platformer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Platformer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Platformer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -122,6 +122,6 @@ CMakeFiles/Platformer.dir/clean:
 .PHONY : CMakeFiles/Platformer.dir/clean
 
 CMakeFiles/Platformer.dir/depend:
-	cd /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/build /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/build /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/build/CMakeFiles/Platformer.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/andrew/Programming/cppLearningGame/platformer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/andrew/Programming/cppLearningGame/platformer /home/andrew/Programming/cppLearningGame/platformer /home/andrew/Programming/cppLearningGame/platformer/build /home/andrew/Programming/cppLearningGame/platformer/build /home/andrew/Programming/cppLearningGame/platformer/build/CMakeFiles/Platformer.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Platformer.dir/depend
 

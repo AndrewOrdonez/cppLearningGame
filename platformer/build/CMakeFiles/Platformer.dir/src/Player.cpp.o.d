@@ -1,7 +1,7 @@
 CMakeFiles/Platformer.dir/src/Player.cpp.o: \
- /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Player.cpp \
+ /home/andrew/Programming/cppLearningGame/platformer/src/Player.cpp \
  /usr/include/stdc-predef.h \
- /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Player.h \
+ /home/andrew/Programming/cppLearningGame/platformer/src/Player.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -249,8 +249,8 @@ CMakeFiles/Platformer.dir/src/Player.cpp.o: \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
  /usr/include/SDL2/SDL_misc.h \
- /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Constants.h \
- /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Platform.h \
+ /home/andrew/Programming/cppLearningGame/platformer/src/Constants.h \
+ /home/andrew/Programming/cppLearningGame/platformer/src/Platform.h \
  /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
