@@ -1,3 +1,0 @@
-/home/andrew/Programming/cppLearningGame/platformer/build/CMakeFiles/Platformer.dir
-/home/andrew/Programming/cppLearningGame/platformer/build/CMakeFiles/edit_cache.dir
-/home/andrew/Programming/cppLearningGame/platformer/build/CMakeFiles/rebuild_cache.dir
