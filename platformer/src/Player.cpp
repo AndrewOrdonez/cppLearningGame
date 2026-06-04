@@ -64,6 +64,7 @@ void Player::resolveCollisions(const std::vector<Platform>& platforms) {
         float pRight  = pos.x + width;
         float pTop    = pos.y;
         float pBottom = pos.y + height;
+        float pTopThird = pos.y + height / 3.0f;
 
         // Platform edges
         float platLeft   = plat.x;
@@ -93,11 +94,16 @@ void Player::resolveCollisions(const std::vector<Platform>& platforms) {
                 pos.y = platTop - height;   // Land on top
                 vel.y = 0.0f;
                 onGround = true;
+                redAmount = 70;
             } else {
                 pos.y = platBottom;         // Hit ceiling
                 vel.y = 0.0f;
             }
         } else {
+            if (pTopThird < platTop) {
+                    vel.y = Constants::MANTLE_SPEED;; 
+                    redAmount = 255;
+            }
             // Resolve horizontally (hitting a wall)
             if (overlapLeft < overlapRight) {
                 pos.x = platLeft - width;   // Pushed left
@@ -113,7 +119,7 @@ void Player::resolveCollisions(const std::vector<Platform>& platforms) {
 // SDL_RenderFillRectF draws a filled rectangle using float coordinates.
 // We pass a pointer to a local SDL_FRect — the F stands for float.
 void Player::render(SDL_Renderer* renderer) {
-    SDL_SetRenderDrawColor(renderer, 70, 130, 220, 255);  // R, G, B, Alpha
+    SDL_SetRenderDrawColor(renderer, redAmount, 130, 220, 255);  // R, G, B, Alpha
 
     SDL_FRect rect{ pos.x, pos.y, width, height };
     SDL_RenderFillRectF(renderer, &rect);  // & takes the address — gives us a pointer to rect

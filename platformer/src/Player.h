@@ -36,6 +36,7 @@ private:
     Vec2  vel;
     float width  = 32.0f;
     float height = 48.0f;
+    int redAmount = 70;
     bool  onGround = false;
 
     // Helper declared here, defined in .cpp — keeps the header clean

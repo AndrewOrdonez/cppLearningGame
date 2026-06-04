@@ -1,5 +1,5 @@
 CMakeFiles/Platformer.dir/src/main.cpp.o: \
- /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/main.cpp \
+ /home/andrew/Programming/cppLearningGame/platformer/src/main.cpp \
  /usr/include/stdc-predef.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
  /usr/include/SDL2/SDL_config.h \
@@ -317,6 +317,6 @@ CMakeFiles/Platformer.dir/src/main.cpp.o: \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Constants.h \
- /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Platform.h \
- /home/andrew/Programming/learnCPPPlatformerGame/platformer/platformer/src/Player.h
+ /home/andrew/Programming/cppLearningGame/platformer/src/Constants.h \
+ /home/andrew/Programming/cppLearningGame/platformer/src/Platform.h \
+ /home/andrew/Programming/cppLearningGame/platformer/src/Player.h
