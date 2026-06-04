@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/Platformer.dir/src/Player.cpp.o CMakeFiles/Platformer.dir/src/main.cpp.o -o Platformer  /usr/lib/x86_64-linux-gnu/libSDL2.so 
