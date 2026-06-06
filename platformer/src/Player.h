@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>      // std::vector — like C# List<T>
+#include <string>      // std::vector — like C# List<T>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include "Constants.h"
 #include "Platform.h"
 
@@ -29,6 +31,8 @@ public:
     // Accessor — read-only view of position
     Vec2 getPosition() const { return pos; }
 
+    void loadTexture(std::string path, SDL_Renderer* renderer);
+
 private:
     // Private members: only Player's own methods can touch these.
     // This is the same access control as C#, just with the colon syntax.
@@ -38,6 +42,10 @@ private:
     float height = 48.0f;
     int redAmount = 70;
     bool  onGround = false;
+    bool flipped = false;
+
+    SDL_Surface *playerSprite = NULL;
+    SDL_Texture *playerTexture = NULL;
 
     // Helper declared here, defined in .cpp — keeps the header clean
     void resolveCollisions(const std::vector<Platform>& platforms);
