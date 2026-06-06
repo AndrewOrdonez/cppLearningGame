@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>    // std::cerr — like Console.Error in C#
 #include <vector>
 #include <memory>      // std::unique_ptr — smart pointer for RAII
@@ -89,6 +90,7 @@ int main(int /*argc*/, char* /*argv*/[]) {
     // Player is stack-allocated — the compiler manages its lifetime automatically.
     // No 'new' needed. In C# all classes are heap-allocated; in C++ you choose.
     Player player(100.0f, 400.0f);
+    player.loadTexture("/home/andrew/Programming/cppLearningGame/platformer/src/assets/images/stickman.png", renderer.get());
 
     auto platforms = buildLevel();
 
@@ -129,7 +131,7 @@ int main(int /*argc*/, char* /*argv*/[]) {
 
         // -- Render --
         // Clear with a dark background color
-        SDL_SetRenderDrawColor(renderer.get(), 30, 30, 40, 255);
+        SDL_SetRenderDrawColor(renderer.get(), 255, 255, 255, 255);
         SDL_RenderClear(renderer.get());
 
         // Draw platforms
