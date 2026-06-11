@@ -14,6 +14,7 @@ namespace Constants {
     constexpr float MAX_FALL     = 1200.0f; // terminal velocity
 }
 
+
 // ---- Vec2 --------------------------------------------------------------------
 // A simple 2D float vector. In C# you'd reach for Vector2 — here we make our own.
 // struct in C++ is identical to class except members are public by default.

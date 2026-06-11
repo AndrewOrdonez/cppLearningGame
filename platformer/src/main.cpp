@@ -43,6 +43,15 @@ std::vector<Platform> buildLevel() {
     };
 }
 
+std::vector<Platform> scalePlatforms(std::vector<Platform> platforms, Vec2 windowScale) {
+    for (auto& plat : platforms) {
+        plat.x *= windowScale.x;
+        plat.y *= windowScale.y;
+        plat.w *= windowScale.x;
+        plat.h *= windowScale.y;
+    }
+    return platforms;
+}
 
 // ---- main --------------------------------------------------------------------
 // In C++ main() returns int to the OS: 0 = success, non-zero = error.
@@ -64,9 +73,16 @@ int main(int /*argc*/, char* /*argv*/[]) {
             "C++ Platformer",
             SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
             Constants::SCREEN_W, Constants::SCREEN_H,
-            SDL_WINDOW_SHOWN
+            SDL_WINDOW_SHOWN or SDL_WINDOW_FULLSCREEN
         )
     };
+
+    Vec2 windowScale = {1.0f, 1.0f};
+    int windowWidth, windowHeight;
+
+    SDL_GetWindowSize(window.get(), &windowWidth, &windowHeight);
+    windowScale.x = windowWidth / (float)Constants::SCREEN_W;
+    windowScale.y = windowHeight / (float)Constants::SCREEN_H;
 
     if (!window) {
         std::cerr << "SDL_CreateWindow error: " << SDL_GetError() << "\n";
@@ -93,6 +109,7 @@ int main(int /*argc*/, char* /*argv*/[]) {
     player.loadTexture("/home/andrew/Programming/cppLearningGame/platformer/src/assets/images/stickman.png", renderer.get());
 
     auto platforms = buildLevel();
+    auto scaledPlatforms = scalePlatforms(platforms, windowScale);
 
     // ---- Game loop -----------------------------------------------------------
     // The classic: process input → update state → render → repeat.
@@ -136,13 +153,13 @@ int main(int /*argc*/, char* /*argv*/[]) {
 
         // Draw platforms
         SDL_SetRenderDrawColor(renderer.get(), 100, 200, 100, 255);
-        for (const auto& plat : platforms) {
+        for (const auto& plat : scaledPlatforms) {
             SDL_FRect r = plat.rect();
             SDL_RenderFillRectF(renderer.get(), &r);
         }
 
         // Draw player (method handles its own color)
-        player.render(renderer.get());
+        player.render(renderer.get(), windowScale);
 
         // Swap front/back buffers — makes the frame visible.
         // With PRESENTVSYNC this blocks until the next monitor refresh (60Hz → ~16ms wait).
