@@ -106,7 +106,7 @@ void Player::resolveCollisions(const std::vector<Platform>& platforms) {
             }
         } else {
             if (pTopThird < platTop) { // Mantle when hitting the side of a plaform
-                    vel.y = Constants::MANTLE_SPEED;; 
+                    vel.y = Constants::MANTLE_SPEED; 
                     redAmount = 255;
             }
             // Resolve horizontally (hitting a wall)
@@ -131,12 +131,12 @@ void Player::loadTexture(std::string path, SDL_Renderer* renderer) {
 // ---- Render ------------------------------------------------------------------
 // SDL_RenderFillRectF draws a filled rectangle using float coordinates.
 // We pass a pointer to a local SDL_FRect — the F stands for float.
-void Player::render(SDL_Renderer* renderer) {
+void Player::render(SDL_Renderer* renderer, Vec2 windowScale) {
     SDL_SetRenderDrawColor(renderer, redAmount, 130, 220, 255);  // R, G, B, Alpha
 
-    SDL_Rect srcRect{ 0, 0, width, height };
+    SDL_Rect srcRect{ 0, 0, width * windowScale.x, height * windowScale.y };
 
-    SDL_Rect rect{ pos.x, pos.y, width, height };
+    SDL_Rect rect{ pos.x * windowScale.x, pos.y * windowScale.y, width * windowScale.x, height * windowScale.y };
     SDL_RenderCopyEx(renderer, playerTexture, &srcRect, &rect, 0, nullptr, flipped ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
      // & takes the address — gives us a pointer to rect
 }

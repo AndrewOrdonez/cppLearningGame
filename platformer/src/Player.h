@@ -24,9 +24,11 @@ public:
     // In C++, you must be explicit: & means reference, const means read-only.
     void update(float dt, const std::vector<Platform>& platforms);
 
+// ---- Vec2 --------------------------------------------------------------------
+
     void handleInput(const Uint8* keystate);  // Uint8 is SDL's typedef for unsigned char
 
-    void render(SDL_Renderer* renderer);      // Raw pointer — SDL owns this, we just borrow it
+    void render(SDL_Renderer* renderer, Vec2 windowScale);      // Raw pointer — SDL owns this, we just borrow it
 
     // Accessor — read-only view of position
     Vec2 getPosition() const { return pos; }
