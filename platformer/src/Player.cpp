@@ -37,7 +37,7 @@ void Player::handleInput(const Uint8* keystate) {
 // ---- Update (physics + collision) --------------------------------------------
 // dt = delta time in seconds (e.g. 0.016 for 60fps).
 // Multiplying by dt makes movement frame-rate-independent — same as in C# Unity.
-void Player::update(float dt, const std::vector<Platform>& platforms) {
+void Player::update(float dt, const std::vector<Platform>& platforms, int levelW) {
     // Apply gravity
     vel.y += Constants::GRAVITY * dt;
 
@@ -53,7 +53,7 @@ void Player::update(float dt, const std::vector<Platform>& platforms) {
 
     // Screen boundary (left/right only — falling off bottom just keeps falling)
     if (pos.x < 0.0f)                              pos.x = 0.0f;
-    if (pos.x + width > Constants::SCREEN_W)       pos.x = Constants::SCREEN_W - width;
+    if (pos.x + width > levelW)       pos.x = levelW - width;
 }
 
 // ---- Collision resolution ----------------------------------------------------
@@ -129,14 +129,19 @@ void Player::loadTexture(std::string path, SDL_Renderer* renderer) {
 }
 
 // ---- Render ------------------------------------------------------------------
-// SDL_RenderFillRectF draws a filled rectangle using float coordinates.
-// We pass a pointer to a local SDL_FRect — the F stands for float.
-void Player::render(SDL_Renderer* renderer, Vec2 windowScale) {
+// SDL_RenderFillRectF draws a player from the player texture.
+// returns the drawn x position of the player
+int Player::render(SDL_Renderer* renderer, Vec2 windowScale, int levelW) {
     SDL_SetRenderDrawColor(renderer, redAmount, 130, 220, 255);  // R, G, B, Alpha
 
     SDL_Rect srcRect{ 0, 0, width * windowScale.x, height * windowScale.y };
+    int midScreen = (Constants::SCREEN_W / 2);
 
-    SDL_Rect rect{ pos.x * windowScale.x, pos.y * windowScale.y, width * windowScale.x, height * windowScale.y };
+    int xDraw = ((midScreen - pos.x) < 0 && ((levelW - midScreen) - pos.x) > 0) ? midScreen : pos.x;  // move character at left side of level, otherwise draw center screen
+    xDraw = pos.x > (levelW - midScreen) ? (((int)pos.x % midScreen) ) + midScreen : xDraw; // move character at right side of level
+
+    SDL_Rect rect{ xDraw * windowScale.x, pos.y * windowScale.y, width * windowScale.x, height * windowScale.y };
     SDL_RenderCopyEx(renderer, playerTexture, &srcRect, &rect, 0, nullptr, flipped ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
-     // & takes the address — gives us a pointer to rect
+    
+    return xDraw;
 }
