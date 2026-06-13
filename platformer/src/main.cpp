@@ -3,10 +3,12 @@
 #include <iostream>    // std::cerr — like Console.Error in C#
 #include <vector>
 #include <memory>      // std::unique_ptr — smart pointer for RAII
+#include <algorithm> 
 
 #include "Constants.h"
 #include "Platform.h"
 #include "Player.h"
+#include "Level.h"
 
 // ---- RAII helper -------------------------------------------------------------
 // SDL uses C-style opaque pointers (SDL_Window*, SDL_Renderer*).
@@ -23,25 +25,6 @@ struct SdlRendererDeleter { void operator()(SDL_Renderer* r) { SDL_DestroyRender
 using WindowPtr   = std::unique_ptr<SDL_Window,   SdlWindowDeleter>;
 using RendererPtr = std::unique_ptr<SDL_Renderer, SdlRendererDeleter>;
 
-
-// ---- Level data --------------------------------------------------------------
-// std::vector<Platform> is a heap-allocated dynamic array — like C# List<Platform>.
-// {} initializes it with a brace-enclosed list of Platform values.
-// Platform is a struct so {x, y, w, h} does aggregate initialization.
-std::vector<Platform> buildLevel() {
-    return {
-        // Ground platform spanning the whole screen
-        {   0.0f, 540.0f, 800.0f,  60.0f },
-
-        // Floating platforms
-        {  80.0f, 430.0f, 140.0f,  18.0f },
-        { 280.0f, 350.0f, 160.0f,  18.0f },
-        { 500.0f, 280.0f, 120.0f,  18.0f },
-        { 650.0f, 380.0f, 130.0f,  18.0f },
-        { 160.0f, 220.0f, 100.0f,  18.0f },
-        { 380.0f, 160.0f, 180.0f,  18.0f },
-    };
-}
 
 std::vector<Platform> scalePlatforms(std::vector<Platform> platforms, Vec2 windowScale) {
     for (auto& plat : platforms) {
@@ -108,7 +91,8 @@ int main(int /*argc*/, char* /*argv*/[]) {
     Player player(100.0f, 400.0f);
     player.loadTexture("/home/andrew/Programming/cppLearningGame/platformer/src/assets/images/stickman.png", renderer.get());
 
-    auto platforms = buildLevel();
+    auto platforms = Level::buildLevel(1);
+    auto levelW = Level::getLevelWidth(1);
     auto scaledPlatforms = scalePlatforms(platforms, windowScale);
 
     // ---- Game loop -----------------------------------------------------------
@@ -144,22 +128,24 @@ int main(int /*argc*/, char* /*argv*/[]) {
         player.handleInput(keystate);
 
         // -- Update --
-        player.update(dt, platforms);
+        player.update(dt, platforms, levelW);
 
         // -- Render --
         // Clear with a dark background color
         SDL_SetRenderDrawColor(renderer.get(), 255, 255, 255, 255);
         SDL_RenderClear(renderer.get());
 
+        // Draw player 
+        int playerX = player.render(renderer.get(), windowScale, levelW);
+        int xOffset = std::max(0.0f, player.getPosition().x - (Constants::SCREEN_W / 2));
+
         // Draw platforms
         SDL_SetRenderDrawColor(renderer.get(), 100, 200, 100, 255);
         for (const auto& plat : scaledPlatforms) {
             SDL_FRect r = plat.rect();
+            r.x -= (std::min(xOffset, levelW - (Constants::SCREEN_W)) * windowScale.x);
             SDL_RenderFillRectF(renderer.get(), &r);
         }
-
-        // Draw player (method handles its own color)
-        player.render(renderer.get(), windowScale);
 
         // Swap front/back buffers — makes the frame visible.
         // With PRESENTVSYNC this blocks until the next monitor refresh (60Hz → ~16ms wait).

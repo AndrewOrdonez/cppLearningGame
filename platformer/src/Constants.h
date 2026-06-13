@@ -7,6 +7,7 @@
 namespace Constants {
     constexpr int   SCREEN_W     = 800;
     constexpr int   SCREEN_H     = 600;
+    constexpr int   SCREEN_MARGIN= 200;
     constexpr float GRAVITY      = 1800.0f; // pixels per second²
     constexpr float JUMP_SPEED   = -650.0f; // negative = upward (Y increases downward)
     constexpr float MANTLE_SPEED = -300.0f;
